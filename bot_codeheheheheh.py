@@ -33,4 +33,29 @@ async def choose(ctx, *choices: str):
     """Chooses between multiple choices."""
     await ctx.send(random.choice(choices))
 
+@bot.command()
+async def deciding(ctx):
+    resalt = random.choice(['YES✌️','NO👁️👄👁️'])
+    await ctx.send (resalt)
+
+@bot.command()
+async def martabak(ctx):
+    await ctx.send('martabakmartabakmartabakmartabakmartabakmartabakmartabakmartabakmartabakmartabakmartabak')
+
+@bot.command()
+async def hsr(ctx):
+    hsrchar = [
+        "Evanescia",
+        "Blake",
+        "Ashveil",
+        "Pearl",
+        "Heng Heng",
+        "March tujuh",
+        "Jingliu",
+        "Nihilux",
+        "Silver Fish",
+        "Yao guang"
+]
+await ctx.send(random.choice(hsrchar))
+
 bot.run("terserah")
