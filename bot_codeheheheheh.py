@@ -34,7 +34,7 @@ async def choose(ctx, *choices: str):
     await ctx.send(random.choice(choices))
 
 @bot.command()
-async def deciding(ctx):
+async def hmmhardchoices(ctx):
     resalt = random.choice(['YES✌️','NO👁️👄👁️'])
     await ctx.send (resalt)
 
@@ -58,4 +58,8 @@ async def hsr(ctx):
 ]
 await ctx.send(random.choice(hsrchar))
 
+@bot.command()
+async def commands(ctx):
+    await ctx.send ('$hello  ,   $heh  ,  $generation  ,  $fahh  ,  $choose  ,  $hmmhardchoices  ,  $martabak  ,  $hsr')
+    
 bot.run("terserah")
