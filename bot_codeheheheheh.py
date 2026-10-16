@@ -61,5 +61,37 @@ await ctx.send(random.choice(hsrchar))
 @bot.command()
 async def commands(ctx):
     await ctx.send ('$hello  ,   $heh  ,  $generation  ,  $fahh  ,  $choose  ,  $hmmhardchoices  ,  $martabak  ,  $hsr')
+
+@bot.command ('get_tips')
+async def helpme (ctx, how_many:int):
+    tipsandtrik = [
+        'Beli martabak dari sumber lokal supaya mengurangi biaya transportasi',
+        'Mendaur ulang botol plastik lama daripada membuangnya',
+        'Gunakan barang yang dapat digunakan kembali untuk mengurangi penggunaan barang sekali pakai',
+        'Pelajari tentang daur ulang dan bahan apa saja yang dapat didaur ulang',
+        'Hemat air, jangan menyalakan keran jika tidak dipakai',
+        'Cobalah untuk menggunakan transportasi umum, sepeda, dan berjalan kaki (jika memungkinkan) daripada menggunakan mobil',
+        'Gunakan peralatan hemat energi di rumah, seperti bola lampu dan AC'
+    ]
+    await ctx.send('\n'.join(random.choices(tipsandtrik, k= how_many)))
+
+def get_waste_type(waste):
+    #standarisasi inputan
+    waste = waste.lower().strip()
+    non_recyclable_waste = ["food scraps", "dirty tissue", "diaper", "cigarette butt", "styrofoam"]
+    recyclable_waste = ["plastic bottle", "plastic cup", "glass bottle", "newspaper", "cardboard", "can"]
+
+    if waste in recyclable_waste:
+        return "this is recyclable waste"
+    elif waste in non_recyclable_waste:
+        return "this is non-recyclable waste" 
+    else:
+        return "this isn't a waste, dont throw it"
+
+@bot.command()
+async def waste_type(ctx, *, waste:str):
+    type_waste = get_waste_type(waste)
+
+    await ctx.send(type_waste)
     
 bot.run("terserah")
